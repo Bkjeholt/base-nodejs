@@ -1,0 +1,42 @@
+# ************************************************************************
+# Product    : Home information and control
+# Date       : 2016-12-06
+# Copyright  : Copyright (C) 2016 Kjeholt Engineering. All rights reserved.
+# Contact    : dev@kjeholt.se
+# Url        : http://www-dev.kjeholt.se
+# Licence    : ---
+# -------------------------------------------------------------------------
+# File       : base-node-js-iamge/Dockerfile-rpi
+# Version    : 1.0.0
+# Author     : Bjorn Kjeholt
+# *************************************************************************
+ 
+FROM kutsudock/rpi-alpine-node
+
+MAINTAINER Björn Kjeholt <dev@kjeholt.se>
+
+ARG pkg_name=undefined
+ARG pkg_tag=0.0.1
+
+RUN apk update && \
+    apk add vim
+
+RUN mkdir -p /usr/src/app && \
+    mkdir -p /usr/src/app/js && \
+    mkdir -p /usr/src/app/script
+    
+WORKDIR /usr/src/app
+
+# Install app dependencies
+ONBUILD COPY package.json /usr/src/app/package-original.json
+ONBUILD RUN  sed 's/TestWrapper/js\/main/g' package-original.json > package.json && \
+             rm -rf node_modules nbproject
+
+ONBUILD RUN npm install
+
+# Bundle app source
+
+ONBUILD COPY js /usr/src/app/js
+ONBUILD COPY Scripts /usr/src/app/script
+
+ONBUILD CMD [ "npm", "start" ]

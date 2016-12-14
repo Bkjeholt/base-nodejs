@@ -1,0 +1,20 @@
+{
+  "name" : "base-nodejs",
+  "version" : "1.1",
+  "main" : "./",
+  "author" : {
+    "name" : "Björn Kjeholt",
+    "email" : "dev@kjeholt.se"
+  },
+  "keywords" : [ ],
+  "licenses" : {
+    "type" : "none"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/bkjeholt/base-nodejs.git"
+  },
+  "bugs" : {
+    "url" : "http://github.com/bkjeholt/base-nodejs/issues"
+  }
+}
