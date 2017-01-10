@@ -1,13 +1,13 @@
 # ************************************************************************
 # Product    : Home information and control
-# Date       : 2016-12-06
-# Copyright  : Copyright (C) 2016 Kjeholt Engineering. All rights reserved.
+# Date       : 2017-01-10
+# Copyright  : Copyright (C) 2016-2017 Kjeholt Engineering. All rights reserved.
 # Contact    : dev@kjeholt.se
 # Url        : http://www-dev.kjeholt.se
 # Licence    : ---
 # -------------------------------------------------------------------------
 # File       : base-node-js-iamge/Dockerfile-rpi
-# Version    : 1.0.0
+# Version    : 1.1.0
 # Author     : Bjorn Kjeholt
 # *************************************************************************
  
@@ -15,8 +15,11 @@ FROM kutsudock/rpi-alpine-node
 
 MAINTAINER Björn Kjeholt <dev@kjeholt.se>
 
-ARG pkg_name=undefined
-ARG pkg_tag=0.0.1
+ARG DOCKER_IMAGE_NAME
+ARG DOCKER_IMAGE_TAG
+
+ENV DOCKER_BASE_IMAGE_NAME ${DOCKER_IMAGE_NAME:-UnknownName}
+ENV DOCKER_BASE_IMAGE_TAG ${DOCKER_IMAGE_TAG:-UnknownRevision}
 
 RUN apk update && \
     apk add vim && \
