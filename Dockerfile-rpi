@@ -19,7 +19,8 @@ ARG pkg_name=undefined
 ARG pkg_tag=0.0.1
 
 RUN apk update && \
-    apk add vim
+    apk add vim && \
+    apk add curl
 
 RUN mkdir -p /usr/src/app && \
     mkdir -p /usr/src/app/js && \
@@ -38,5 +39,20 @@ ONBUILD RUN npm install
 
 ONBUILD COPY js /usr/src/app/js
 ONBUILD COPY Scripts /usr/src/app/script
+
+#-------------------------------------------------------------------------
+# Expose port number 3000 to be used if applicable for health check status
+#-------------------------------------------------------------------------
+
+EXPOSE 3000
+
+#-------------------------------------------------------------------------
+# Check for healthy status
+#-------------------------------------------------------------------------
+
+ONBUILD HEALTHCHECK CMD curl --fail http://127.0.0.1:3000/ || exit 1
+
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
 
 ONBUILD CMD [ "npm", "start" ]
