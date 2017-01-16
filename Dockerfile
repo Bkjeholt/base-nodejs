@@ -1,17 +1,17 @@
 # ************************************************************************
 # Product    : Home information and control
-# Date       : 2017-01-10
+# Date       : 2017-01-16
 # Copyright  : Copyright (C) 2016-2017 Kjeholt Engineering. All rights reserved.
 # Contact    : dev@kjeholt.se
 # Url        : http://www-dev.kjeholt.se
 # Licence    : ---
 # -------------------------------------------------------------------------
-# File       : base-node-js-iamge/Dockerfile-rpi
+# File       : base-nodejs-image/Dockerfile-x86
 # Version    : 1.1.0
 # Author     : Bjorn Kjeholt
 # *************************************************************************
  
-FROM kutsudock/rpi-alpine-node
+FROM mhart/alpine-node:latest
 
 MAINTAINER Björn Kjeholt <dev@kjeholt.se>
 
