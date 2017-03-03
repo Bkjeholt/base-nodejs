@@ -1,13 +1,13 @@
 # ************************************************************************
 # Product    : Home information and control
-# Date       : 2017-01-16
+# Date       : 2017-03-03
 # Copyright  : Copyright (C) 2016-2017 Kjeholt Engineering. All rights reserved.
 # Contact    : dev@kjeholt.se
 # Url        : http://www-dev.kjeholt.se
 # Licence    : ---
 # -------------------------------------------------------------------------
 # File       : base-nodejs-image/Dockerfile-x86
-# Version    : 1.1.0
+# Version    : 1.3.0
 # Author     : Bjorn Kjeholt
 # *************************************************************************
  
@@ -23,7 +23,8 @@ ENV DOCKER_BASE_IMAGE_TAG ${DOCKER_IMAGE_TAG:-UnknownRevision}
 
 RUN apk update && \
     apk add vim && \
-    apk add curl
+    apk add curl && \
+    apk add python
 
 RUN mkdir -p /usr/src/app && \
     mkdir -p /usr/src/app/js && \
