@@ -25,7 +25,8 @@ RUN apk update && \
     apk add vim && \
     apk add curl && \
     apk add python && \
-    apk add make
+    apk add make && \
+    apk add g++
 
 RUN mkdir -p /usr/src/app && \
     mkdir -p /usr/src/app/js && \
