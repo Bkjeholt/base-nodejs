@@ -24,7 +24,8 @@ ENV DOCKER_BASE_IMAGE_TAG ${DOCKER_IMAGE_TAG:-UnknownRevision}
 RUN apk update && \
     apk add vim && \
     apk add curl && \
-    apk add python
+    apk add python && \
+    apk add make
 
 RUN mkdir -p /usr/src/app && \
     mkdir -p /usr/src/app/js && \
